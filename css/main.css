@@ -80,6 +80,12 @@ header .container {
   border: 2px solid #fff;
   padding: 0.7rem 1rem;
   margin-right: 1.5rem;
+  -webkit-transition: background-color 300ms ease;
+  transition: background-color 300ms ease;
+}
+
+.next-btn:active {
+  background-color: #930000;
 }
 
 .menu-btn {
@@ -237,6 +243,10 @@ img.notice {
   border-radius: 9px;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  -webkit-transition: -webkit-transform 100ms linear;
+  transition: -webkit-transform 100ms linear;
+  transition: transform 100ms linear;
+  transition: transform 100ms linear, -webkit-transform 100ms linear;
 }
 
 .evidence-item img {
@@ -317,9 +327,23 @@ footer {
   color: inherit;
 }
 
+.credits a:active {
+  color: #930000;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .menu-link:hover {
     background-color: #2d5c7d;
+  }
+  .evidence-item:hover {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  .next-btn:hover {
+    background-color: #930000;
+  }
+  .credits a:hover {
+    color: #930000;
   }
 }
 

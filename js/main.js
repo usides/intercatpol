@@ -10,9 +10,9 @@ const suspects = [
     weight: 6,
     color: 'Grey',
     details:
-      'Language: meowing <br> Good at hiding <br> Professional driver that very dangerous on the road - Pursue with extreme caution <br> Strong sour cream addiction',
+      '- Language: meowing <br>- Good at hiding <br>- Professional driver that very dangerous on the road - Pursue with extreme caution <br>- Strong sour cream addiction',
     charges:
-      'Suspected in multiple thefts of luxury vehicles around the world <br> He spends all proceeds on sour cream and can kill for sour cream',
+      '- Suspected in multiple thefts of luxury vehicles around the world <br>- He spends all proceeds on sour cream and can kill for sour cream',
     portret: 'crim_01',
     files: ['crim_01_e01', 'crim_01_e02', 'crim_01_e03'],
   },
@@ -27,9 +27,9 @@ const suspects = [
     weight: 3,
     color: 'White',
     details:
-      'Language: meowing <br> strong metabolism - can eat all evidence without a form change <br> master of disguise',
+      '- Language: meowing <br>- strong metabolism - can eat all evidence without a form change <br> - master of disguise',
     charges:
-      "Suspected in mass burglaries and shopliftings <br> Pretends to be a homeless cat and gets old ladies' trust <br> Uses the stock in the fridge as the priority target for stealing",
+      "- Suspected in mass burglaries and shopliftings <br>- Pretends to be a homeless cat and gets old ladies' trust <br>- Uses the stock in the fridge as the priority target for stealing",
     portret: 'crim_02',
     files: ['crim_02_e01', 'crim_02_e02'],
   },
@@ -44,9 +44,9 @@ const suspects = [
     weight: 4,
     color: 'Black',
     details:
-      'Language: meowing, bip-bip-bup-bup <br> Professional hacker and techno maniac. NFC and WiFi module inside.',
+      '- Language: meowing, bip-bip-bup-bup <br>- Professional hacker and techno maniac<br>- NFC and WiFi module inside',
     charges:
-      'Suspected in malware production, Debit and Credit Card Frauds, Identity Thefts, Phishing scams, Hacking into bank accounts, Vacuum cleaner robots hacking',
+      '- Suspected in malware production<br>- Debit and Credit Card Frauds<br>- Identity Thefts<br>- Phishing scams<br>- Hacking into bank accounts<br>- Vacuum cleaner robots hacking',
     portret: 'crim_03',
     files: ['crim_03_e01', 'crim_03_e02', 'crim_03_e03'],
   },
@@ -59,10 +59,11 @@ const suspects = [
     marks: 'Fluffy paws',
     length: 45,
     weight: 4,
-    color: 'White / grey',
+    color: 'Ginger',
     details:
-      'Language: meowing <br> relaxed all the time <br> not good at hiding',
-    charges: 'Suspected in tax frauds <br> Owner of Illegal flip flops market.',
+      '- Language: meowing <br>- relaxed all the time <br>- not good at hiding',
+    charges:
+      '- Suspected in tax frauds <br>- Owner of Illegal flip flops market',
     portret: 'crim_04',
     files: ['crim_04_e01', 'crim_04_e02'],
   },
@@ -77,9 +78,9 @@ const suspects = [
     weight: 4,
     color: 'Grey',
     details:
-      'Language: meowing, barking <br> flip flops collector <br> Charge with extreme caution',
+      '- Language: meowing, barking <br>- flip flops collector <br>- Charge with extreme caution',
     charges:
-      'Suspected in an assault with fangs and claws <br> Terrorizes all dogs around ',
+      '- Suspected in an assault with fangs and claws <br>- Terrorizes all dogs around ',
     portret: 'crim_05',
     files: ['crim_05_e01', 'crim_05_e02', 'crim_05_e03'],
   },
@@ -94,30 +95,37 @@ const suspects = [
     weight: 4,
     color: 'White / grey',
     details:
-      'Language: meowing <br> calls himself as "sharp eye" but for some reason, other calls him as dog breed "shar-pei" <br> master of disguise as turkey',
+      '- Language: meowing <br>- calls himself as "sharp eye" but for some reason, other calls him as dog breed "shar-pei" <br>- master of disguise as turkey',
     charges:
-      'Suspected in mouses assassination with a long rifle, mouse killer for money',
+      '- Suspected in mouses assassination with a rifle <br>- mouse killer for money - hitcat',
     portret: 'crim_06',
     files: ['crim_06_e01', 'crim_06_e02'],
   },
 ];
 
-//
-
 const sideNavMenu = document.getElementById('side-nav-menu');
 const sideMenu = document.getElementById('side-nav');
 const menuBtn = document.getElementById('menu-btn');
+const nextBtn = document.getElementById('next-btn');
+let current;
 
 document.addEventListener('DOMContentLoaded', function () {
   loadMenu();
-  printData(5);
+  printData(0);
 });
 
 menuBtn.addEventListener('click', function (e) {
   e.preventDefault();
-
   sideMenu.classList.toggle('hidden');
   this.classList.toggle('active');
+});
+
+nextBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  current++;
+  printData(current);
+  makeActive(current);
+  if (current == suspects.length - 1) current = -1;
 });
 
 sideNavMenu.addEventListener('click', function (e) {
@@ -132,7 +140,7 @@ sideNavMenu.addEventListener('click', function (e) {
     (item) => item.number === Number(e.target.id.slice(1)),
   );
   printData(arrNum);
-  makeActive(e.target);
+  makeActive(arrNum);
   sideMenu.classList.add('hidden');
   menuBtn.classList.remove('active');
 });
@@ -148,6 +156,7 @@ function loadMenu() {
     fragment.appendChild(newElem);
   }
   sideNavMenu.appendChild(fragment);
+  current = 0;
 }
 
 function printData(perp) {
@@ -182,6 +191,6 @@ function makeActive(menuItem) {
   let items = document.querySelectorAll('.menu-link');
   for (let i = 0; i < items.length; i++) {
     items[i].classList.remove('active');
-    menuItem.classList.add('active');
+    items[menuItem].classList.add('active');
   }
 }
