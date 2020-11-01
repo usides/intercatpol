@@ -47,13 +47,16 @@ header {
   border: 2px solid #fff;
   padding: 0.7rem 1rem;
   margin-right: 1.5rem;
+  transition: background-color 300ms ease;
+  &:active {
+    background-color: $alert;
+  }
 }
 
 .menu-btn {
   display: none;
 }
 
-// -------------------------------------------------------------------
 .center-content {
   margin-top: 6rem;
   flex: 1 0 auto;
@@ -155,7 +158,6 @@ img.notice {
 .evidence-set {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-around;
   margin-left: 1.2rem;
   margin-right: 1.2rem;
   margin-top: 1.2rem;
@@ -168,6 +170,7 @@ img.notice {
   border-radius: 9px;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  transition: transform 100ms linear;
   img {
     border-radius: 5px;
   }
@@ -216,8 +219,6 @@ p.long-desc {
   }
 }
 
-// ---------------------------------------------------------------------
-
 footer {
   flex-shrink: 0;
   background-color: $darkblue;
@@ -232,12 +233,26 @@ footer {
   a {
     text-decoration: none;
     color: inherit;
+    &:active {
+      color: $alert;
+    }
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .menu-link:hover {
     background-color: $lightblue;
+  }
+  .evidence-item:hover {
+    transform: scale(2);
+  }
+  .next-btn:hover {
+    background-color: $alert;
+  }
+  .credits {
+    a:hover {
+      color: $alert;
+    }
   }
 }
 
