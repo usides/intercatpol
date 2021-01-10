@@ -140,6 +140,7 @@ sideNavMenu.addEventListener('click', function (e) {
   printData(arrNum);
   makeActive(arrNum);
   current = arrNum;
+  if (current == suspects.length - 1) current = -1;
   sideMenu.classList.add('hidden');
   menuBtn.classList.remove('active');
 });
