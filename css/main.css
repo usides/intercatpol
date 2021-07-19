@@ -76,6 +76,12 @@ header .container {
   margin-left: 1rem;
 }
 
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .next-btn {
   border: 2px solid #fff;
   padding: 0.7rem 1rem;
@@ -314,6 +320,20 @@ footer {
   background-color: #001c31;
 }
 
+.description {
+  text-transform: none;
+  padding: 1rem 1rem 0rem 1rem;
+  max-width: 600px;
+  text-align: left;
+  margin: 0 auto;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+.description a {
+  color: #fff;
+}
+
 .credits {
   text-align: center;
   padding: 0.8rem;
@@ -343,6 +363,9 @@ footer {
     background-color: #930000;
   }
   .credits a:hover {
+    color: #930000;
+  }
+  .description a:hover {
     color: #930000;
   }
 }
@@ -417,7 +440,7 @@ footer {
   }
   .header-left-gr h1 {
     font-size: 1.1rem;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
   }
   .left-pane-bottom {
     margin-right: 0rem;
@@ -431,13 +454,10 @@ footer {
     margin-left: 1rem;
     margin-right: 1rem;
   }
-  .next-btn {
-    display: none;
-  }
   .menu-btn {
     display: block;
-    margin-right: 1rem;
-    width: 3rem;
+    margin-right: 0.5rem;
+    width: 3.5rem;
     padding: 0.5rem 0.5rem;
     border: 2px solid #fff;
     -webkit-transition: background-color 300ms ease;
@@ -445,5 +465,8 @@ footer {
   }
   .menu-btn.active {
     background-color: #930000;
+  }
+  .next-btn {
+    margin-right: 0.5rem;
   }
 }
