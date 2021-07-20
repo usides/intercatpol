@@ -321,13 +321,12 @@ footer {
 }
 
 .description {
-  text-transform: none;
-  padding: 1rem 1rem 0rem 1rem;
-  max-width: 600px;
-  text-align: left;
+  text-transform: uppercase;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
+  text-align: center;
   margin: 0 auto;
   font-weight: normal;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .description a {
